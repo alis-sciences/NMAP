@@ -1,0 +1,965 @@
+    1  nvidia-smi
+    2  sudo apt update
+    3  sudo apt install software-properties-common
+    4  sudo add-apt-repository ppa:deadsnakes/ppa
+    5  sudo apt update
+    6  sudo apt install python3.10 python3.10-venv python3.10-dev
+    7  python3.10 -m venv lstm-vmd
+    8  source lstm-vmd/bin/activate
+    9  pip install tensorflow==2.15.0 keras==2.15.0 numpy==1.25.2 pandas==2.1.0 matplotlib==3.7.3 scikit-learn==1.3.0 vmdpy==0.2 openpyxl==3.1.5 seaborn pyyaml
+   10  wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+   11  sudo dpkg -i cuda-keyring_1.1-1_all.deb
+   12  sudo apt-get update
+   13  sudo apt-get install -y libcudnn8 libcudnn8-dev
+   14  python -c "import tensorflow as tf; print('TF:', tf.__version__); print('GPU:', tf.config.list_physical_devices('GPU'))"
+   15  cd cnn_lstm_unc_staged/
+   16  python main.py 
+   17  source lstm-vmd/bin/activate
+   18  cd cnn_lstm_unc_staged/
+   19  python main.py
+   20  source lstm-vmd/bin/activate
+   21  cd cnn_lstm_unc_staged/
+   22  python main.py
+   23  pip install tensorflow-probability==0.23.0
+   24  python main.py
+   25  source lstm-vmd/bin/activate
+   26  cd cnn_lstm_unc_staged/
+   27  python main.py 
+   28  df -h
+   29  python -m venv nma_neuroai_env
+   30  source nma_neuroai_env/bin/activate
+   31  git clone https://github.com/ShirodkarTejas/nma_nai_on.git
+   32  pip install -r requirements.txt
+   33  cd nma_nai_on/
+   34  pip install -r requirements.txt
+   35  pip install -r _requirements.txt
+   36  python main.py --mode train_curriculum --training_steps 1000000 --model_type biological_ncap --save_steps 50000
+   37  ls
+   38  git clone https://github.com/fabiopardo/tonic.git
+   39  cd tonic/
+   40  pip install -e . --no-build-isolation
+   41  pip install -e .
+   42  nano setup.cfg
+   43  echo "[options] packages = find:[options.packages.find] include = tonic*" >> setup.cfg
+   44  pip install -e .
+   45  cd ..
+   46  pip install -e .
+   47  cd tonic/
+   48  pip install -e .
+   49  python main.py --mode train_curriculum --training_steps 1000000 --model_type biological_ncap --save_steps 50000
+   50  cd ..
+   51  python main.py --mode train_curriculum --training_steps 1000000 --model_type biological_ncap --save_steps 50000
+   52  pip install -e . --config-settings editable_mode=compat
+   53  cd tonic/
+   54  pip install -e . --config-settings editable_mode=compat
+   55  pip uninstall tonic -y
+   56  python3 -c "import tonic; print(tonic.__file__)"
+   57  cd ..
+   58  git clone https://github.com/fabiopardo/tonic.git
+   59  cd tonic/
+   60  pip install -e .
+   61  sed -i 's/\[options\.\]/[options]/g' setup.cfg
+   62  pip install .
+   63  ls
+   64  cd tonic/
+   65  ls
+   66  pip install .
+   67  sed -i 's/\[options\.\]/[options]/g' setup.cfg
+   68  cd ..
+   69  sed -i 's/\[options\.\]/[options]/g' setup.cfg
+   70  pip install ./tonic
+   71  cd ..
+   72  pip install ./tonic
+   73  nano ./tonic/setup.cfg
+   74  pip install ./tonic
+   75  python main.py --mode train_curriculum --training_steps 1000000 --model_type biological_ncap --save_steps 50000
+   76  sudo apt-get install -y xvfb
+   77  xvfb-run -a python main.py --mode train_curriculum --training_steps 1000 --model_type biological_ncap --save_steps 500
+   78  pip uninstall tonic -y
+   79  pip install ./tonic
+   80  python -c "from tonic.utils import logger; print('OK')"
+   81  TONIC_PATH=/workspace/nma_neuroai_env/lib/python3.12/site-packages/tonic
+   82  grep -rl "import gym" $TONIC_PATH
+   83  find $TONIC_PATH -name "*.py" -exec sed -i   's/^import gym$/import gymnasium as gym/' {} +   -exec sed -i   's/^from gym/from gymnasium/' {} +
+   84  grep -r "import gym" $TONIC_PATH  # should return nothing
+   85  python -c "from tonic.utils import logger; print('OK')"
+   86  # Check if utils actually exists in the installed package
+   87  ls /workspace/nma_neuroai_env/lib/python3.12/site-packages/tonic/
+   88  # Check what's in the source repo
+   89  ls /workspace/nma_nai_on/tonic/tonic/
+   90  cp -r /workspace/nma_nai_on/tonic/tonic/utils       /workspace/nma_neuroai_env/lib/python3.12/site-packages/tonic/utils
+   91  TONIC_PATH=/workspace/nma_neuroai_env/lib/python3.12/site-packages/tonic
+   92  find $TONIC_PATH -name "*.py" -exec sed -i 's/^import gym$/import gymnasium as gym/' {} \;
+   93  find $TONIC_PATH -name "*.py" -exec sed -i 's/^from gym /from gymnasium /' {} \;
+   94  python -c "from tonic.utils import logger; print('OK')"
+   95  pip install gymnasium
+   96  pip install "gymnasium[mujoco]"
+   97  pip install "gymnasium[classic-control]"
+   98  pip install "gymnasium[mujoco]"
+   99  python -c "import tonic; print('tonic OK')"
+  100  python -c "import gymnasium as gym; print('gymnasium OK')"
+  101  xvfb-run -a python main.py --mode train_curriculum --training_steps 1000 --model_type biological_ncap --save_steps 500
+  102  source nma_neuroai_env/bin/activate
+  103  cd nma_nai_on/
+  104  xvfb-run -a python main.py --mode train_curriculum --training_steps 10 --model_type ncap_ccmn --save_steps 50
+  105  xvfb-run -a python main.py --mode train_curriculum --training_steps 10 --model_type ccmn --save_steps 50
+  106  xvfb-run -a python main.py --mode train_curriculum --training_steps 1000000 --model_type ccmn --save_steps 50000
+  107  xvfb-run -a python main.py --mode train_curriculum --training_steps 1000000 --model_type ccmn --save_steps 50000 --run_sanity_check on --sanity_check_steps 1000
+  108  xvfb-run -a python main.py --mode train_curriculum --training_steps 1000 --model_type ccmn --save_steps 250 --run_sanity_check --sanity_check_steps 250
+  109  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000   --save_steps 250   --run_sanity_check   --sanity_check_steps 600   --ccmn_phase1_land_fraction 0.0
+  110  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000   --save_steps 250   --run_sanity_check   --sanity_check_steps 600   --ccmn_phase1_land_fraction 0.15
+  111  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000   --save_steps 250   --film_ablation   --ccmn_phase1_land_fraction 0.15   --run_sanity_check   --sanity_check_steps 600
+  112  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000   --save_steps 250   --ccmn_phase1_land_fraction 0.15   --run_sanity_check   --sanity_check_steps 600   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8
+  113  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8   --oscillator_period 60
+  114  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --resume_checkpoint outputs/curriculum_training/checkpoints/<your_checkpoint_file>.pt   --eval_episodes 10   --eval_video_steps 800
+  115  cd outputs/curriculum_training
+  116  ls
+  117  cd checkpoints/
+  118  ls
+  119  cd ccmn/
+  120  ls
+  121  ls -l
+  122  cd ../../..
+  123  cd ..
+  124  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --resume_checkpoint outputs/curriculum_training/checkpoints/ccmn$ ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_100000.pt   --eval_episodes 10   --eval_video_steps 800
+  125  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --resume_checkpoint outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_100000.pt   --eval_episodes 10   --eval_video_steps 800
+  126  cd outputs/curriculum_training/checkpoints/ccmn/
+  127  ls
+  128  ls -l
+  129  cd ../
+  130  cd ../../
+  131  cd ..
+  132  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --resume_checkpoint outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_100000.pt   --eval_episodes 10   --eval_video_steps 800
+  133  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8   --oscillator_period 60   --n_links 6
+  134  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8   --oscillator_period 60   --n_links 6
+  135  cd nma_nai_on_bio/
+  136  source ../nma_neuroai_env/
+  137  source ../nma_neuroai_env/bin/activate
+  138  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  139  source lstm-vmd/bin/activate
+  140  cd cnn_lstm_unc_staged/
+  141  python main.py
+  142  cd ../cnn_lstm_unc_staged_mc/
+  143  ls
+  144  python main.py
+  145  df -h
+  146  source nma_neuroai_env/
+  147  df -h
+  148  source nma_neuroai_env/bin/activate
+  149  cd nma_nai_on/
+  150  ls
+  151  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 5000   --save_steps 1000   --ccmn_phase1_land_fraction 0.15   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --run_sanity_check   --sanity_check_steps 600   --num_workers 8   --n_links 6
+  152  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --run_sanity_check   --sanity_check_steps 600   --num_workers 8   --oscillator_period 60   --n_links 6
+  153  cd ..
+  154  cp -a nma_nai_on/ nma_nai_on_bio/
+  155  df -h
+  156  rm -rf ~/.local/share/Trash/*
+  157  df -h
+  158  cd nma_nai_on
+  159  ls
+  160  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --run_sanity_check   --sanity_check_steps 600   --num_workers 8   --oscillator_period 60   --n_links 6
+  161  df -h
+  162  cp -a cnn_lstm_unc_staged/ cnn_lstm_unc_staged_bayes/
+  163  df -h
+  164  rm -rf ~/.local/share/Trash/*
+  165  df -h
+  166  source lstm-vmd/bin/activate
+  167  cd cnn_lstm_unc_staged_bayes/
+  168  ls
+  169  python main.py
+  170  source lstm-vmd/bin/activate
+  171  cd cnn_lstm_unc_staged
+  172  python main.py
+  173  source nma_neuroai_env/bin/activate
+  174  cd nma_nai_on_bio/
+  175  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  176  df -h
+  177  source nma_neuroai_env/bin/activate
+  178  cd nma_nai_on
+  179  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6 --ccmn_use_viscosity_input
+  180  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --run_sanity_check   --sanity_check_steps 600   --num_workers 8   --oscillator_period 60   --n_links 6
+  181  source nma_neuroai_env/
+  182  source nma_neuroai_env/bin/activate
+  183  cp -a nma_nai_on_bio/ nma_nai_on_kin
+  184  df -h
+  185  cp -a nma_nai_on_bio/ nma_nai_on_reward
+  186  cd nma_nai_on_reward/
+  187  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  188  source nma_neuroai_env/bin/activate
+  189  cd nma_nai_on_kin/
+  190  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  191  source nma_neuroai_env/bin/activate
+  192  cd nma_nai_on_bio/
+  193  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  194  source nma_neuroai_env/bin/activate
+  195  cd nma_nai_on_kin/
+  196  cd ../nma_nai_on_comb/
+  197  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  198  # Clear all Python bytecode caches in the workspace
+  199  find /workspace/nma_nai_on_comb -name "*.pyc" -delete
+  200  find /workspace/nma_nai_on_comb -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null
+  201  # Verify the deployed file actually has the fix
+  202  grep -n "use_metabolic_bonus"   /workspace/nma_nai_on_comb/swimmer/environments/progressive_mixed_env.py | head -5
+  203  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  204  exit
+  205  source nma_neuroai_env/
+  206  source nma_neuroai_env/bin/activate
+  207  cd nma_nai_on_comb/
+  208  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  209  cd ../nma_nai_on_reward/
+  210  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  211  source nma_neuroai_env/bin/activate
+  212  cd ../nma_nai_on_reward/
+  213  ls
+  214  cd nma_nai_on_reward/
+  215  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6
+  216  source nma_neuroai_env/bin/activate
+  217  cd nma_nai_on_strong_anis/
+  218  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  219  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  220  source nma_neuroai_env/bin/activate
+  221  cd nma_nai_on_comb/
+  222  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  223  df -h
+  224  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 200000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  225  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  226  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  227  df -h
+  228  rm -rf ~/.local/share/Trash/*
+  229  df -h
+  230  pip cache purge
+  231  df -h
+  232  source nma_neuroai_env/
+  233  source nma_neuroai_env/bin/activate
+  234  cp -a nma_nai_on_comb/ nma_nai_on_strong_anis/
+  235  cp -a nma_nai_on_comb/ nma_nai_on_abl_ampl/
+  236  cd nma_nai_on_abl_ampl
+  237  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025   --anisotropic_drag_all_media   --ablate_amplitude_scaling   --num_workers 8   --oscillator_period 60   --n_links 6
+  238  df -h
+  239  rm -rf ~/.local/share/Trash/*
+  240  df -h
+  241  cp -a nma_nai_on_comb/ nma_nai_on_new_env_5m
+  242  source nma_neuroai_env/bin/activate
+  243  cd nma_nai_on_new_env_5m
+  244  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 5000000   --save_steps 50000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  245  cp -a nma_nai_on_comb/ nma_nai_on_new_env
+  246  source nma_neuroai_env/bin/activate
+  247  cd nma_nai_on_new_env/
+  248  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100   --save_steps 50   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  249  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000   --save_steps 500   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  250  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 1000   --save_steps 50   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  251  df -h
+  252  source lstm-vmd/bin/activate
+  253  cp -a /workspace/cnn_lstm_unc_staged/AI_Runs/ /workspace/cnn_lstm_unc_multiscale_cnn/AI_Runs/
+  254  df -h
+  255  cd cnn_lstm_unc_multiscale_cnn/AI_Runs/
+  256  ls
+  257  cd AI_Runs/
+  258  ls
+  259  cd Training/
+  260  ls
+  261  cd SLSYD/
+  262  ls
+  263  rm O3
+  264  rm -rf O3/
+  265  ls
+  266  cd PM2.5/
+  267  ls
+  268  rm Wind_Bayes
+  269  rm -rf Wind_Bayes
+  270  rm -rf Wind_Bayes_2
+  271  rm -rf Wind_Lead/
+  272  rm -rf Wind_XG_Boost_Results/
+  273  rm -rf RH_T/
+  274  rm -rf T/
+  275  ls
+  276  df -h
+  277  rm -rf ~/.local/share/Trash/*
+  278  df -h
+  279  rm -rf ~/.local/share/Trash/*
+  280  df -h
+  281  cd ..
+  282  python main.py
+  283  source lstm-vmd/bin/activate
+  284  cd cnn_lstm_unc_multiscale_cnn/
+  285  python main.py
+  286  source lstm-vmd/bin/activate
+  287  cd cnn_lstm_unc_multiscale_cnn/
+  288  python main.py
+  289  df -h
+  290  source nma_neuroai_env/bin/activate
+  291  cd nma_nai_on_comb/
+  292  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  293  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  294  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 5000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  295  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --resume_checkpoint outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_5000000.pt   --eval_episodes 10   --eval_video_steps 800   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --oscillator_period 60   --n_links 6
+  296  cd nma_nai_on_new_env_5m/
+  297  source ../nma_neuroai_env/bin/activate
+  298  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 5000000   --save_steps 100000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  299  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 100   --save_steps 50   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  300  cd outputs/curriculum_training_5m/checkpoints/
+  301  ls
+  302  cd ccmn
+  303  ls
+  304  ls -l
+  305  cd ../..
+  306  cd ../.
+  307  cd ..
+  308  xvfb-run -a python main.py   --mode evaluate_curriculum   --model_type ccmn   --env_type striped_viscosity   --resume_checkpoint outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_5000000.pt   --eval_episodes 10   --eval_video_steps 800   --n_links 6   --oscillator_period 60   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04
+  309  df -h
+  310  rm -rf ~/.local/share/Trash/*
+  311  df -h
+  312  source lstm-vmd/bin/activate
+  313  cd cnn_lstm_unc_staged
+  314  python main.py
+  315  pip install pysindy
+  316  python main.py
+  317  numpy==1.25.2
+  318  pip install "numpy>=1.23.5,<2.0.0" --force-reinstall
+  319  pip install "pysindy>=1.7,<2.0" --no-deps
+  320  pip install derivative importlib-metadata zipp
+  321  python main.py
+  322  pip install gpytorch torch --index-url https://download.pytorch.org/whl/cpu
+  323  pip install torch --index-url https://download.pytorch.org/whl/cpu
+  324  df -h
+  325  pip install gpytorch
+  326  pip cache purge
+  327  df -h
+  328  rm -rf ~/.local/share/Trash/*
+  329  df -h
+  330  python main.py
+  331  source nma_neuroai_env/bin/activate
+  332  cd nma_nai_on_new_env/
+  333  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 1000   --save_steps 50   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  334  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 1000000   --save_steps 100000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  335  source lstm-vmd/bin/activate
+  336  cd cnn_lstm_unc_multiscale_cnn/
+  337  python main.py
+  338  mv ~/.local/share/Trash/files/nma_neuroai_env .
+  339  df -h
+  340  source lstm-vmd/bin/activate
+  341  cd cnn_lstm_unc_hybrid_multiscale/
+  342  python main.py
+  343  source lstm-vmd/bin/activate
+  344  ls
+  345  cd cnn_lstm_unc_staged/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/Sparse_LSTM_v1
+  346  ls
+  347  python generate_metrics_plots_and_tables.py
+  348  ls
+  349  cd /workspace/cnn_lstm_unc/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/PM2.5_all_sites_all_lags/
+  350  ls
+  351  cd /workspace/cnn_lstm_unc_staged/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/Sparse_LSTM_v1
+  352  python generate_metrics_plots_and_tables.py
+  353  cd ../../..
+  354  cd ../..
+  355  cd ..
+  356  ls
+  357  python main.py
+  358  source nma_neuroai_env/bin/activate
+  359  cd nma_nai_on_new_env_5m
+  360  ls
+  361  python -m your_package.training.curriculum_trainer_hd_patch     --n_links 5     --model_type ccmn     --training_steps 1000000
+  362  history
+  363  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  364  nvidia-smi
+  365  nvidia-smi -l
+  366  source nma_neuroai_env/bin/activate
+  367  cd nma_nai_on_new_env_5m
+  368  ls
+  369  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000 --save_steps 250   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  370  source lstm-vmd/bin/activate
+  371  source lstm-vmd/bin/activatec
+  372  cd cnn_lstm_unc_staged
+  373  python main.py
+  374  source lstm-vmd/bin/activate
+  375  df -h
+  376  cd cnn_lstm_unc_staged
+  377  python main.py
+  378  source nma_neuroai_env/
+  379  source nma_neuroai_env/bin/activate
+  380  cd nma_nai_on_new_env_5m
+  381  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 5000000 --save_steps 250000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  382  cd /workspace/cnn_lstm_unc_imf/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/Sparse_LSTM_v1
+  383  python 1_generate_metrics_plots_and_tables.py 
+  384  cd ../../../../
+  385  cd ../..
+  386  source ../lstm-vmd/bin/activate
+  387  /workspace/cnn_lstm_unc_imf/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/Sparse_LSTM_v1
+  388  cd /workspace/cnn_lstm_unc_imf/AI_Runs/Training/SLSYD/PM2.5/OBS_only_test/Sparse_LSTM_v1
+  389  python 1_generate_metrics_plots_and_tables.py 
+  390  cd ../../..
+  391  python main.py
+  392  df -h
+  393  python main.py
+  394  df -h
+  395  rm -rf ~/.local/share/Trash/*
+  396  df -h
+  397  du -sh *
+  398  cd cnn_lstm_unc_staged_mc
+  399  du -sh *
+  400  cd AI_Runs/
+  401  ls
+  402  du -sh *
+  403  cd Training/
+  404  du -sh *
+  405  cd SLSYD/
+  406  ls
+  407  cd PM2.5/
+  408  du -sh *
+  409  rm -rf ~/.local/share/Trash/*
+  410  cd ..
+  411  cd ../..
+  412  cd ..
+  413  df -h
+  414  cp -a AI_Runs/ ../cnn_lstm_unc_imf/
+  415  df -h
+  416  rm -rf ~/.local/share/Trash/*
+  417  df -h
+  418  cd ../cnn_lstm_unc_imf/
+  419  ls
+  420  df -h
+  421  python main.py
+  422  source ../lstm-vmd/bin/activate
+  423  python main.py
+  424  rm -rf ~/.local/share/Trash/*
+  425  df -h
+  426  rm -rf ~/.local/share/Trash/*
+  427  df -h
+  428  python main.py
+  429  nvidia-smi
+  430  source nma_neuroai_env/bin/activate
+  431  cd nma_nai_on_new_env
+  432  history
+  433  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 100000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  434  cd ../nma_nai_on_comb
+  435  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 100000 --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  436  hisotory
+  437  history
+  438  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 100000   --save_steps 25000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  439  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  440  python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+  441  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+  442  python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+  443  pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  444  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  445  df -h
+  446  rm -rf ~/.local/share/Trash/*
+  447  df -h
+  448  pip cache purge
+  449  df -h
+  450  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  451  pip cache purge
+  452  df -h
+  453  ../nma_nai_on_new_env_5m
+  454  cd ../nma_nai_on_new_env_5m
+  455  ls
+  456  du -sh .
+  457  ls
+  458  du -h --max-depth=1
+  459  cd outputs/
+  460  du -h --max-depth=1
+  461  pip cache purge
+  462  ls
+  463  rm -rf ~/.local/share/Trash/*
+  464  df -h
+  465  rm -rf ~/.local/share/Trash/*
+  466  df -h
+  467  cd ..
+  468  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  469  df -h
+  470  cd ..
+  471  du -h --max-depth=1
+  472  cd cnn_lstm_unc_staged_mc
+  473  du -h --max-depth=1
+  474  df -h
+  475  rm -rf ~/.local/share/Trash/*
+  476  df -h
+  477  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  478  df -h
+  479  pip cache purge
+  480  df -h
+  481  python -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+  482  pip install numpy==1.25.2
+  483  pip install "numpy<2" --force-reinstall
+  484  python -c "import numpy; import torch; print('numpy', numpy.__version__); print('cuda', torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+  485  cd ..
+  486  cd nma_nai_on_comb
+  487  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 1000 --save_steps 25   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  488  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  489  nvidia-smi -l
+  490  source nma_neuroai_env/
+  491  source nma_neuroai_env/bin/activate
+  492  cd nma_nai_on_new_env
+  493  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 5000000 --save_steps 250000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  494  cd ../nma_nai_on_new_env_5m
+  495  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 5000000 --save_steps 250000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  496  cd nma_neuroai_env/bin/activate
+  497  source nma_neuroai_env/bin/activate
+  498  cd nma_nai_on_new_env_5m
+  499  history
+  500  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 100000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  501  source nma_neuroai_env/bin/activate
+  502  cd nma_nai_on_comb/
+  503  xvfb-run -a python main.py --mode train_curriculum --model_type ccmn   --training_steps 100000   --save_steps 25000   --ccmn_phase1_land_fraction 0.15 --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 8.0   --anisotropic_drag_gain 0.025 --anisotropic_drag_all_media   --num_workers 8 --n_links 6   --env_type hd_striped_viscosity
+  504  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --training_steps 100000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  505  pip install gymnasium
+  506  pip install stable-baselines3
+  507  cd ../pymodel/
+  508  python test_celegans_elastica.py
+  509  df -h
+  510  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  511  df -h
+  512  pip cache purge
+  513  rm -rf ~/.local/share/Trash/*
+  514  df -h
+  515  deactivate
+  516  python3.10 -m venv nmd
+  517  df -h
+  518  ls
+  519  cd ..
+  520  python3.10 -m venv pyelast
+  521  source pyelast/bin/activate
+  522  df -h
+  523  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  524  df -h
+  525  du -h --max-depth=1 . | sort -hr
+  526  rm -rf ~/.local/share/Trash/*
+  527  df -h
+  528  pip install torch==2.2.0+cu118 torchvision==0.17.0+cu118 torchaudio==2.2.0+cu118     --index-url https://download.pytorch.org/whl/cu118     --force-reinstall
+  529  pip install stable-baselines3 --no-deps
+  530  pip install gymnasium huggingface-sb3  # stable-baselines3 dependencies
+  531  pip install "stable-baselines3==2.3.0" matplotlib pandas
+  532  python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+  533  python -c "import stable_baselines3; print(stable_baselines3.__version__)"
+  534  cd pymodel/
+  535  ls
+  536  python test_celegans_elastica.py
+  537  pip install pyelastica
+  538  rm -rf ~/.local/share/Trash/*
+  539  df -h
+  540  pip cache purge
+  541  df -h
+  542  python test_celegans_elastica.py
+  543  pip install "numpy<2" --force-reinstall
+  544  python test_celegans_elastica.py
+  545  python -c "import elastica; print(elastica.__version__)"
+  546  pip show pyelastica
+  547  python test_celegans_elastica.py
+  548  source nma_neuroai_env/bin/activate
+  549  cd nma_nai_on_new_env_5m
+  550  cd ..
+  551  pip install pyelastica
+  552  df -h
+  553  mkdir pymodel
+  554  cd pymodel/
+  555  ls
+  556  python celegans_pyelastica.py --mode swim
+  557  python celegans_pyelastica.py --mode crawl
+  558  python celegans_pyelastica.py --mode both
+  559  python celegans_pyelastica.py --mode both --animate
+  560  python celegans_visualise.py --mode both
+  561  python celegans_visualise.py --mode both --use-pyelastica
+  562  source pyelast/
+  563  source pyelast/bin/activate
+  564  cd pyelast/
+  565  cd ..
+  566  cd pymodel/
+  567  python test_celegans_elastica.py
+  568  python celegans_ncap_trainer.py --mode crawl --n_links 6 --episodes 10000
+  569  source pyelast/bin/activate
+  570  cd pymodel/
+  571  python celegans_ncap_trainer.py --mode crawl --n_links 6 --episodes 100
+  572  cd nma_nai_on_comb/
+  573  find . -name "*.xml"
+  574  cd ..
+  575  source nma_neuroai_env/bin/activate
+  576  cd nma_nai_on_comb
+  577  python export_kinematics.py   --checkpoint outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_final_model.pt   --n_links 6 --num_steps 180 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60
+  578  python export_kinematics.py   --checkpoint /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_final_model.pt   --n_links 6 --num_steps 1800 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60
+  579  cd /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/
+  580  ls
+  581  cd ccmn
+  582  ls
+  583  cd ../..
+  584  cd ..
+  585  python export_kinematics.py   --checkpoint /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_1000000.pt   --n_links 6 --num_steps 1800 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60
+  586  pip install "numpy<2" --quiet
+  587  python export_kinematics.py   --checkpoint /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_1000000.pt   --n_links 6 --num_steps 1800 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60
+  588  python export_kinematics.py   --checkpoint /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_1000000.pt   --n_links 6 --num_steps 1800 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60 --device cuda
+  589  python curvature_converter.py   --input kinematics_export.npz --output curvature.npz --n_elem 60
+  590  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-5
+  591  pip install pyelastica
+  592  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-5
+  593  pip install pyelastica
+  594  python -c "import elastica; print(elastica.__version__)"
+  595  pip show pyelastica
+  596  python -c "import elastica.timestepper; print(dir(elastica.timestepper))"
+  597  python -c "from elastica.timestepper import integrate; print('integrate OK')"
+  598  python -c "from elastica import integrate; print('integrate from elastica OK')"
+  599  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-5
+  600  source pyelast/bin/activate
+  601  cd pymodel/
+  602  python celegans_ncap_trainer.py --mode crawl --n_links 6 --episodes 10000
+  603  source pyelast/bin/activate
+  604  cd pymodel/
+  605  python celegans_ncap_trainer.py --mode crawl --n_links 6 --episodes 10
+  606  python celegans_ncap_trainer.py --mode swim --n_links 6 --episodes 10
+  607  python celegans_visualise.py
+  608  python celegans_ncap_trainer.py --mode swim --n_links 6 --episodes 10000
+  609  source nma_neuroai_env/
+  610  source nma_neuroai_env/bin/activate
+  611  cd nmma_nai_h
+  612  cd nma_nai_hrl/
+  613  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 5000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  614  df -h
+  615  source nma_neuroai_env/bin/activate
+  616  cd nma_nai_hrl
+  617  xvfb-run -a python main.py   --mode train_curriculum   --model_type ncap_swimmer   --training_steps 25   --save_steps 5   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6  
+  618  xvfb-run -a python main.py   --mode train_curriculum   --model_type biological_ncap   --training_steps 25   --save_steps 5   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  619  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  620  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25 \        
+  621  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25 \        
+  622  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  623  source nma_neuroai_env/bin/activate
+  624  cd nma_nai_hrl
+  625  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_mode proxy   --num_workers 8   --oscillator_period 60   --n_links 6
+  626  nvidia-smi
+  627  source nma_neuroai_env/bin/activate
+  628  cd nma_nai_hrl
+  629  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --hide_environment_observation   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_env_obs
+  630  source nma_neuroai_env/bin/activate
+  631  cd nma_nai_hrl
+  632  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 25000   --save_steps 5000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_mode proxy   --num_workers 8   --oscillator_period 60   --n_links 6
+  633  source nma_neuroai_env/bin/activate
+  634  cd nma_nai_hrl
+  635  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --ccmn_use_viscosity_input   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_viscosity_input
+  636  source nma_neuroai_env/bin/activate
+  637  cd nma_nai_on_comb/
+  638  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-3
+  639  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_substrate.npz --env substrate --dt_sim 1e-3
+  640  python compare_trajectories.py   --kinematics kinematics_export.npz --curvature curvature.npz   --pe_water pyelastica_water.npz --pe_substrate pyelastica_substrate.npz   --output_dir comparison_plots
+  641  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_substrate.npz --env substrate --dt_sim 1e-5
+  642  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-5
+  643  python compare_trajectories.py   --kinematics kinematics_export.npz --curvature curvature.npz   --pe_water pyelastica_water.npz --pe_substrate pyelastica_substrate.npz   --output_dir comparison_plots
+  644  python export_kinematics.py   --checkpoint /workspace/nma_nai_on_comb/outputs/curriculum_training/checkpoints/ccmn/ccmn_ppo_6links_oscillator_period60_training_modecurriculum_checkpoint_step_1000000.pt   --n_links 6 --num_steps 18000 --output kinematics_export.npz   --training_progress 0.7 --oscillator_period 60 --device cuda
+  645  python curvature_converter.py   --input kinematics_export.npz --output curvature.npz --n_elem 60
+  646  python pyelastica_reconstruction.py   --curvature curvature.npz --kinematics kinematics_export.npz   --output pyelastica_water.npz --env water --dt_sim 1e-5
+  647  df -h
+  648  cd ..
+  649  cp -a nma_nai_on_comb/
+  650  cp -a nma_nai_on_comb/ nma_nai_hrl
+  651  df -h
+  652  cd nma_nai_hrl/
+  653  ls
+  654  cd outputs/curriculum_training
+  655  ls
+  656  rm -rf checkpoints/
+  657  df -h
+  658  pip cache purge
+  659  rm -rf ~/.local/share/Trash/*
+  660  df -h
+  661  cd ..
+  662  du -h --max-depth=1 . | sort -hr
+  663  rm -rf ~/.local/share/Trash/*
+  664  df -h
+  665  cd nma_nai_hrl
+  666  ls
+  667  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn   --env_type striped_viscosity   --training_steps 1000000   --save_steps 100000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  668  ls
+  669  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --env_type striped_viscosity   --training_steps 100   --save_steps 100000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  670  history
+  671  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --env_type striped_viscosity   --training_steps 100000   --save_steps 25000   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  672  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000   --save_steps 250   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  673  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 50   --save_steps 50   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  674  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_s 1000000   --save_ps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  675  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 100   --save_steps 5   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  676  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --n_links 6
+  677  df -h
+  678  history
+  679  df -h
+  680  ls
+  681  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --output_dir /workspace/nma_nai_hrl/outputs/ex_1/   --n_links 6
+  682  source nma_neuroai_env/bin/activate
+  683  cd nma_nai_hrl
+  684  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.15   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --anisotropic_drag_all_media   --num_workers 8   --oscillator_period 60   --output_dir /workspace/nma_nai_hrl/outputs/ex_2/   --n_links 6
+  685  pip cache purge
+  686  rm -rf ~/.local/share/Trash/*
+  687  df -h
+  688  source nma_neuroai_env/bin/activate
+  689  cd nma_nai_hrl
+  690  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_drag
+  691  source nma_neuroai_env/bin/activate
+  692  cd nma_nai_hrl
+  693  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_bistab
+  694  source nma_neuroai_env/bin/activate
+  695  cd nma_nai_hrl
+  696  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_drag
+  697  source nma_neuroai_env/bin/activate
+  698  cd nma_nai_hrl
+  699  df -h
+  700  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --ablate_metabolic_bonus   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_metabolic
+  701  source nma_neuroai_env/bin/activate
+  702  cd nma_nai_hrl
+  703  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --film_ablation   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_film
+  704  source nma_neuroai_env/bin/activate
+  705  cd nma_nai_hrl
+  706  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --ablate_amplitude_scaling   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_amp_scaling
+  707  source nma_neuroai_env/
+  708  source nma_neuroai_env/bin/activate
+  709  cd nma_nai_hrl/
+  710  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hr1l   --training_steps 1000   --save_steps 250   --bistability_regulariser   --bistability_lambda 0.05   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --n_links 6
+  711  source nma_neuroai_env/bin/activate
+  712  cd nma_nai_hrl/
+  713  cd ..
+  714  cd nma_nai_hrl_n/
+  715  ls
+  716  xvfb-run -a python main.py   --mode train_curriculum   --model_type biological_ncap   --training_steps 100   --save_steps 50   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ncap_baseline/
+  717  xvfb-run -a python main.py   --mode train_curriculum   --model_type biological_ncap   --training_steps 250000   --save_steps 50000   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ncap_baseline/
+  718  xvfb-run -a python main.py   --mode train_curriculum   --model_type biological_ncap   --training_steps 1000000   --save_steps 50000   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/ncap_baseline_1m/
+  719  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 1500   --save_steps 50   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline_5m/
+  720  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 100   --save_steps 50   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline/
+  721  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 1000000   --save_steps 50000   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline/
+  722  source nma_neuroai_env/bin/activate
+  723  cd nma_nai_hrl/
+  724  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --output_dir /workspace/nma_nai_hrl/outputs/baseline_full_fixed/   --n_links 6
+  725  nvidia-smi
+  726  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_regulariser   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --output_dir /workspace/nma_nai_hrl/outputs/baseline_full_fixed/   --n_links 6
+  727  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode progressive   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_baseline_500k/   --n_links 6
+  728  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode progressive   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_baseline_1m/   --n_links 6
+  729  df -h
+  730  rm -rf ~/.local/share/Trash/*
+  731  df -h
+  732  cp -a nma_nai_hrl nma_nai_hrl_n
+  733  cp -a ../nma_nai_hrl nma_nai_hrl_n/
+  734  cp -a ../nma_nai_hrl ../nma_nai_hrl_n/
+  735  rm -rf ~/.local/share/Trash/*
+  736  df -h
+  737  cd ../nma_nai_hrl_n
+  738  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --bayes_likelihood_sharpness 4.0   --bayes_reward_weight 0.3   --bayes_epistemic_penalty_weight 0.2   --output_dir /workspace/nma_nai_hrl/outputs/bayesian_reward_1M/   --n_links 6
+  739  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --bayes_likelihood_sharpness 8.0   --bayes_reward_weight 0.3   --bayes_epistemic_penalty_weight 0.05   --output_dir /workspace/nma_nai_hrl/outputs/bayesian_reward_v2_1M/   --n_links 6
+  740  nvidia-smi
+  741  source nma_neuroai_env/bin/activate
+  742  cd nma_nai_hrl/
+  743  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 250000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode forced_alternating   --forced_segment_steps 150   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/option1_forced_alt/   --n_links 6
+  744  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode forced_alternating   --forced_segment_steps 150   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_option1_500k/   --n_links 6
+  745  source nma_neuroai_env/bin/activate
+  746  cd nma_nai_hrl/
+  747  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode progressive   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/control_progressive/   --n_links 6
+  748  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode land_target_forced   --forced_segment_steps 200   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_combined_500k/   --n_links 6
+  749  cd ../nma_nai_hrl_n/
+  750  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_no_bistab_1M/   --n_links 6
+  751  source nma_neuroai_env/bin/activate
+  752  cd nma_nai_hrl/
+  753  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/option2_land_target/   --n_links 6
+  754  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500   --save_steps 100  --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_option2_500k/   --n_links 6
+  755  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 500000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_option2_500k/   --n_links 6
+  756  xvfb-run -a python main.py   --mode train_curriculum   --model_type ccmn_hrl   --training_steps 1000000   --save_steps 50000   --ccmn_phase1_land_fraction 0.25   --bistability_lambda 0.01   --anisotropic_drag_mode proxy   --anisotropic_drag_ratio 12.0   --anisotropic_drag_gain 0.04   --num_workers 8   --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 5.0   --output_dir /workspace/nma_nai_hrl/outputs/eq_option2_1m/   --n_links 6
+  757  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000 --save_steps 500   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0   --mismatch_penalty_weight 0.5   --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05   --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_1M/   --n_links 6
+  758  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0   --mismatch_penalty_weight 0.5   --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05   --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_1M/   --n_links 6
+  759  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 1000000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0   --mismatch_penalty_weight 0.5   --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05   --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_2M/   --n_links 6
+  760  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 250000 --save_steps 50000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0   --mismatch_penalty_weight 0.5   --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05   --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_250k/   --n_links 6
+  761  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 5000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0   --mismatch_penalty_weight 0.5   --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05   --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_5m/   --n_links 6
+  762  nvidia-smi
+  763  source nma_neuroai_env/bin/activate
+  764  cd nma_nai_hrl/
+  765  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 1000   --save_steps 500   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline/
+  766  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 1000   --save_steps 500   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline/
+  767  grep -c "bayes_likelihood_sharpness"   /workspace/nma_nai_hrl/swimmer/environments/progressive_mixed_env.py
+  768  cp /mnt/user-data/outputs/progressive_mixed_env.py    /workspace/nma_nai_hrl/swimmer/environments/progressive_mixed_env.py
+  769  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --training_steps 1000   --save_steps 500   --num_workers 8   --oscillator_period 60   --n_links 6   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_baseline/
+  770  xvfb-run -a python main.py   --mode train_curriculum --model_type simple_ncap   --training_steps 3000000 --save_steps 100000   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_ppo_3M/   --n_links 6
+  771  df -h
+  772  rm -rf ~/.local/share/Trash/*
+  773  df -h
+  774  cd ../nma_nai_hrl_n/
+  775  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --algorithm ddpg   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ccmn_hrl_ddpg_3M/   --n_links 6
+  776  source nma_neuroai_env/bin/activate
+  777  cd ../nma_nai_hrl_n/
+  778  cd nma_nai_hrl_n/
+  779  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser --film_ablation   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_film_3M/   --n_links 6
+  780  cd ../nma_nai_hrl_n/
+  781  source nma_neuroai_env/bin/activate
+  782  cd nma_nai_hrl/
+  783  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_hrl_3M/   --n_links 6
+  784  cd ../nma_nai_hrl_n/
+  785  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_hrl_3M/   --n_links 6
+  786  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser --ccmn_use_viscosity_input   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ablation_viscosity_input_3M/   --n_links 6
+  787  source nma_neuroai_env/bin/activate
+  788  cd nma_nai_hrl_h
+  789  cd nma_nai_hrl_h/
+  790  cd nma_nai_hrl_n/
+  791  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --algorithm es   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ccmn_hrl_es_3M/   --n_links 6
+  792  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ablation_no_hrl_3M/   --n_links 6
+  793  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --algorithm ddpg   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ccmn_hrl_ddpg_3M/   --n_links 6
+  794  xvfb-run -a python main.py   --mode train_curriculum --model_type ccmn_hrl   --algorithm es   --training_steps 3000000 --save_steps 100000   --ccmn_phase1_land_fraction 0.25 --bistability_lambda 0.01   --bistability_regulariser   --anisotropic_drag_mode proxy --anisotropic_drag_ratio 12.0 --anisotropic_drag_gain 0.04   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/ccmn_hrl_es_3M/   --n_links 6
+  795  nvidia-smi
+  796  df -h
+  797  source nma_neuroai_env/bin/activate
+  798  cd nma_nai_hrl_n/
+  799  xvfb-run -a python main.py   --mode train_curriculum --model_type simple_ncap   --training_steps 3000000 --save_steps 100000   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_ppo_3M/   --n_links 6
+  800  df -h
+  801  rm -rf ~/.local/share/Trash/*
+  802  df -h
+  803  exit
+  804  cd /workspace/nma_nai_hrl/outputs/simple_ncap_ppo_test/curriculum_training/checkpoints
+  805  ls
+  806  cd simple_ncap/
+  807  ls
+  808  cd /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_250k/curriculum_training/checkpoints
+  809  ls
+  810  cd ccmn_hrl/
+  811  ls
+  812  cd ../../..
+  813  cd ../..
+  814  xvfb-run -a python run_comparison.py
+  815  source nma_neuroai_env/bin/activate
+  816  cd ..
+  817  source nma_neuroai_env/bin/activate
+  818  cd nma_nai_hrl
+  819  xvfb-run -a python run_comparison.py
+  820  ls outputs/simple_ncap_ppo_test/curriculum_training/checkpoints/simple_ncap/
+  821  xvfb-run -a python run_comparison.py
+  822  cd /workspace/nma_nai_hrl/outputs/opt2_sustained_swim_1M/curriculum_training/checkpoints
+  823  ls
+  824  cd ccmn_hrl/
+  825  ls
+  826  cd /workspace/nma_nai_hrl/outputs/simple_ncap_ppo_test/curriculum_training/checkpoints
+  827  ls
+  828  cd simple_ncap/
+  829  ls
+  830  cd /workspace/nma_nai_hrl/outputs/simple_ncap_ddpg_test/curriculum_training/checkpoints
+  831  ls
+  832  cd simple_ncap/
+  833  ls
+  834  cd /workspace/nma_nai_hrl/outputs/simple_ncap_es_test/curriculum_training/checkpoints
+  835  cd simple_ncap/
+  836  ls
+  837  cd ../../..
+  838  cd ../..
+  839  cd ../nma_nai_hrl_n
+  840  chmod +x ncap_5m.sh 
+  841  ./ncap_5m.sh 
+  842  ls
+  843  chmod +x ncap_5m.sh 
+  844  ./ncap_5m.sh 
+  845  ls ncap_5m.sh 
+  846  nano ncap_5m.sh 
+  847  chmod +x ncap_5m.sh 
+  848  ./ncap_5m.sh 
+  849  xvfb-run -a python main.py   --mode train_curriculum --model_type simple_ncap   --algorithm ppo --training_steps 5000000 --save_steps 500000   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_ppo_5m/   --n_links 6
+  850  source nma_neuroai_env/bin/activate
+  851  grep -n "exploration_noise\|noisy\|stored_action"   /workspace/nma_nai_hrl_n/swimmer/training/curriculum_trainer.py
+  852  cd /workspace/nma_nai_hrl_n
+  853  python3 -c "
+  854  import torch
+  855  from swimmer.models.simple_ncap import SimpleNCAPSwimmer
+  856  m = SimpleNCAPSwimmer(n_joints=5)
+  857  print('Initial weights:')
+  858  for k, v in m.state_dict().items():
+  859      print(f'  {k}: {v.item():.4f}')
+  860  opt = torch.optim.Adam(m.parameters(), lr=3e-5)
+  861  target = torch.randn(1, 5)
+  862  pred = m(torch.randn(1, 5), timesteps=torch.tensor([0.0]))
+  863  loss = torch.nn.functional.mse_loss(pred, target)
+  864  loss.backward()
+  865  opt.step()
+  866  print('After one gradient step:')
+  867  changed = False
+  868  for k, v in m.state_dict().items():
+  869      print(f'  {k}: {v.item():.4f}')
+  870      changed = True
+  871  print('Any change visible above means weights CAN update')
+  872  "
+  873  cd /workspace/nma_nai_hrl_n
+  874  python3 -c "
+  875  import torch
+  876  from swimmer.models.simple_ncap import SimpleNCAPSwimmer
+  877  m = SimpleNCAPSwimmer(n_joints=5, use_weight_constraints=False, use_weight_constant_init=False)
+  878  print('Initial:', {k: round(v.item(),4) for k,v in m.state_dict().items()})
+  879  opt = torch.optim.Adam(m.parameters(), lr=3e-5)
+  880  target = torch.randn(1,5)
+  881  pred = m(torch.randn(1,5), timesteps=torch.tensor([0.0]))
+  882  torch.nn.functional.mse_loss(pred, target).backward()
+  883  opt.step()
+  884  print('After step:', {k: round(v.item(),4) for k,v in m.state_dict().items()})
+  885  "
+  886  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --algorithm ppo   --training_steps 30000   --save_steps 5000   --num_workers 8   --oscillator_period 60   --transition_bonus 0.0   --mismatch_penalty_weight 0.0   --water_velocity_scale 1.0   --sustained_swim_bonus_per_step 0.0   --bayes_reward_weight 0.0   --use_ext_env   --swim_only   --biological_constraint_frequency 999999999   --output_dir /workspace/nma_nai_hrl_n/outputs/ncap_swim_only_ppo_v2/   --n_links 6
+  887  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --algorithm ppo   --training_steps 30000   --save_steps 5000   --num_workers 8   --oscillator_period 60   --transition_bonus 0.0   --mismatch_penalty_weight 0.0   --water_velocity_scale 1.0   --sustained_swim_bonus_per_step 0.0   --bayes_reward_weight 0.0   --use_ext_env   --swim_only   --output_dir /workspace/nma_nai_hrl_n/outputs/ncap_swim_only_ppo_v2/   --n_links 6
+  888  df -h
+  889  rm -rf ../lstm-vmd/
+  890  rm -rf ~/.local/share/Trash/*
+  891  df -h
+  892  rm -rf nma_nai_on_new_env
+  893  rm -rf ~/.local/share/Trash/*
+  894  df -h
+  895  rm -rf nma_nai_on_new_env/
+  896  df -h
+  897  rm -rf ~/.local/share/Trash/*
+  898  df -h
+  899  rm -rf cnn_lstm_unc_multiscale_cnn/
+  900  rm -rf ~/.local/share/Trash/*
+  901  df -h
+  902  rm -rf ~/.local/share/Trash/*
+  903  df -h
+  904  cp -a ../nma_nai_hrl_n/ ../nma_nai_simple/
+  905  df -h
+  906  rm -rf ~/.local/share/Trash/*
+  907  df -h
+  908  rm -rf ~/.local/share/Trash/*
+  909  df -h
+  910  cd ../nma_nai_simple
+  911  python main.py --mode train_simple --n_links 6 --training_steps 1000 --save_steps 50
+  912  ls ~/.local/share/Trash/*
+  913  mv ~/.local/share/Trash/files/curriculum_trainer.py swimmer/training/
+  914  mv ~/.local/share/Trash/files/*.py swimmer/training/
+  915  ls ~/.local/share/Trash/*
+  916  python main.py --mode train_simple --n_links 6 --training_steps 1000 --save_steps 50
+  917  python main.py --mode train_simple --water_only --n_links 6                --training_steps 300 --save_steps 50                --oscillator_period 60
+  918  python main.py --mode train_simple --water_only --n_links 6                --training_steps 500000 --save_steps 5000 --oscillator_period 60
+  919  python main.py --mode train_simple --water_only --n_links 6                --training_steps 300 --save_steps 50                --oscillator_period 60
+  920  python main.py --mode train_simple --water_only --n_links 6                --training_steps 30000 --save_steps 500                --oscillator_period 60
+  921  python main.py --mode train_simple --water_only --n_links 6                --training_steps 30000 --save_steps 50                --oscillator_period 60
+  922  python main.py --mode train_simple --water_only --n_links 6                --training_steps 30000 --save_steps 500                --oscillator_period 60
+  923  source nma_neuroai_env/bin/activate
+  924  cd nma_nai_simple/
+  925  python main.py --mode train_simple --water_only --n_links 6                --training_steps 300000 --save_steps 5000                --oscillator_period 60
+  926  df -h
+  927  source nma_neuroai_env/bin/activate
+  928  cd ../nma_nai_hrl_n/
+  929  cd nma_nai_hrl_n/
+  930  xvfb-run -a python main.py   --mode train_curriculum --model_type simple_ncap   --algorithm es --training_steps 5000000 --save_steps 500000   --num_workers 8 --oscillator_period 60   --training_mode land_target_forced   --transition_bonus 0.0 --mismatch_penalty_weight 0.5 --water_velocity_scale 10.0   --sustained_swim_bonus_per_step 0.05 --sustained_swim_min_bout 50   --transition_cooldown_steps 100   --output_dir /workspace/nma_nai_hrl/outputs/simple_ncap_es_5m/   --n_links 6
+  931  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --algorithm ppo   --training_steps 5000  --save_steps 1000
+  932  xvfb-run -a python main.py   --mode train_curriculum   --model_type simple_ncap   --algorithm ppo   --training_steps 3000000   --save_steps 5000
+  933  source nma_neuroai_env/bin/activate
+  934  cd nma_nai_simple/
+  935  python main.py --mode train_simple --water_only     --algorithm ddpg --num_workers 8 	--training_steps 3000000 --save_steps 5000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_ddpg_v3/
+  936  cd outputs/
+  937  python plot_learning_curve.py ncap_swim_only_ppo_v3/simple_ncap_ppo_6links_oscillator_period60_training_modewater_only_eval_returns.csv
+  938  cd ..
+  939  python main.py --mode train_simple --water_only     --algorithm ddpg --num_workers 8 	--training_steps 3000000 --save_steps 5000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_ddpg_v3/
+  940  source nma_neuroai_env/bin/activate
+  941  cd nma_nai_simple/
+  942  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 300 --save_steps 50     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/	
+  943  PYTHONPATH=/workspace/nma_neuroai_env/lib/python3.12/site-packages:$PYTHONPATH ;
+  944  PYTHONPATH=/workspace/nma_neuroai_env/lib/python3.12/site-packages:$PYTHONPATH
+  945  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 300 --save_steps 50     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/	
+  946  PYTHONPATH=/workspace/nma_nai_simple/tonic_rl:$PYTHONPATH
+  947  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 300 --save_steps 50     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/	
+  948  export PYTHONPATH=/workspace/nma_nai_simple/tonic:$PYTHONPATH
+  949  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 300 --save_steps 50     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/	
+  950  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 3000000 --save_steps 50000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/	
+  951  source nma_neuroai_env/bin/activate
+  952  cd nma_nai_simple/
+  953  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 3000000 --save_steps 5000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/
+  954  python main.py --mode train_simple --water_only     --algorithm ddpg --num_workers 8 	--training_steps 3000 --save_steps 1000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_ddpg_v3/	
+  955  python main.py --mode train_simple --water_only     --algorithm ddpg --num_workers 8 	--training_steps 9000 --save_steps 1000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_ddpg_v3/	
+  956  python main.py --mode train_simple --water_only     --algorithm es --num_workers 8 	--training_steps 3000000 --save_steps 5000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_es_v3/
+  957  python main.py --mode train_simple --water_only     --algorithm ddpg --num_workers 8 	--training_steps 3000000 --save_steps 5000     --output_dir /workspace/nma_nai_simple/outputs/ncap_swim_only_ddpg_v3/
+  958  df -h
+  959  source nma_neuroai_env/bin/activate
+  960  cd nma_nai_ccmn/ nma_nai_ccmn_context/
+  961  cp -a nma_nai_ccmn/ nma_nai_ccmn_context/
+  962  cp -a nma_nai_ccnm/ nma_nai_ccnm_context/
+  963  cd nma_nai_ccnm_context/
+  964  ls
+  965  history > history.txt
