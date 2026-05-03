@@ -260,11 +260,17 @@ The following flags disable specific components to isolate their contribution:
 If you use this code in your research, please cite:
 
 ```bibtex
-@misc{alis2025nmap,
+@misc{karalasingham2025nmap,
   title        = {Neuro-Modulating Architecture Priors for Context Dependent
                   Reconfiguration of Locomotory Circuits},
-  author       = {alis-sciences},
+  author       = {Karalasingham, Sagthitharan and
+                  Shirodkar, Tejas Pradeep and
+                  Fathollahi, Amin and
+                  Ramaswamy, Srikanth},
   year         = {2025},
+  note         = {Karalasingham, Shirodkar, and Fathollahi: Neuromatch Academy,
+                  Neuromatch, Inc. Ramaswamy: Neural Circuits Laboratory,
+                  Faculty of Medical Sciences, Newcastle University, UK},
   howpublished = {\url{https://github.com/alis-sciences/NMAP}}
 }
 ```
